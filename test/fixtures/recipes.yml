@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  production_time: 1
+  style_id: 1
+  instruction: MyString
+
+two:
+  production_time: 1
+  style_id: 1
+  instruction: MyString
