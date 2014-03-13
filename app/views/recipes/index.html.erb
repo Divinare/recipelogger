@@ -1,30 +1,15 @@
-<h1>Listing recipes</h1>
+<h1>Recipes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Production time</th>
-      <th>Style</th>
-      <th>Instruction</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h2> Public recipes (<%= @public_recipes.count %>) </h2>
 
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.production_time %></td>
-        <td><%= recipe.category.name %></td>
-        <td><%= recipe.instruction %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'list', recipes: @public_recipes %>
+
+<% if not current_user.nil? %>
+<h2> Private recipes (<%= @private_recipes.count %>) </h2>
+
+<%= render 'list', recipes: @private_recipes %>
+
+<% end %>
 
 <br>
 

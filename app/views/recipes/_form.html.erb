@@ -25,8 +25,14 @@
   </div>
   <div class="field">
       <%= f.text_area(:instruction, size: '50x10') %>
-    </div>
   </div>
+
+  <h4>Want other users <b>to not</b> <%= " see this? (if checked, "%> <b>only you</b> <%= " can see this recipe)" %> <br /></h4>
+
+  <div class="field">
+    <%= f.check_box :private %> <br />
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

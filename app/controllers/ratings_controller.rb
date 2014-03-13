@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+  before_filter :ensure_that_signed_in, :except => [:index]
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
   before_action :set_recipes, only: [:new, :edit, :create]
 
@@ -27,14 +28,12 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.new(rating_params)
 
-    respond_to do |format|
-      if @rating.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @rating }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @rating.errors, status: :unprocessable_entity }
-      end
+
+    if @rating.save
+      current_user.ratings << @rating
+      redirect_to ratings_path, notice: 'Rating was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -70,7 +69,7 @@ class RatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:recipe_id, :user_id, :score)
+      params.require(:rating).permit(:recipe_id, :score)
     end
 
     def set_recipes

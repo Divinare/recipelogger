@@ -1,10 +1,26 @@
 class RecipesController < ApplicationController
+  before_filter :ensure_that_signed_in, :except => [:index, :show]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :set_categories, only: [:new, :edit, :create]
   # GET /recipes
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    @public_recipes = Recipe.public
+    @private_recipes = []
+
+    if not current_user.nil?
+      @private_recipes = current_user.recipes.where(:private => true)
+    end
+
+    order = params[:order] || 'name'
+
+    case order
+      when 'name' then @recipes.sort_by!{ |b| b.name }
+      when 'time' then @recipes.sort_by!{ |b| b.production_time }
+    end
+
+
   end
 
   # GET /recipes/1
@@ -28,6 +44,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
+        current_user.recipes << @recipe
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render action: 'show', status: :created, location: @recipe }
       else
@@ -69,7 +86,7 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:production_time, :category_id, :name, :instruction)
+      params.require(:recipe).permit(:production_time, :category_id, :name, :instruction, :private)
     end
 
     def set_categories

@@ -1,0 +1,19 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th><%= link_to 'Name', recipes_path(order:"name") %></th>
+    <th><%= link_to 'Time', recipes_path(order:"year") %></th>
+    <th>Average Rating</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, recipe %></td>
+        <td><%= recipe.production_time %></td>
+        <td><%= round(recipe.average_rating) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
