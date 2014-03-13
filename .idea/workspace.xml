@@ -58,11 +58,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_navigation_links.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_navigation_links.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation_links.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="11" selection-start="678" selection-end="678" vertical-scroll-proportion="0.6359102">
+            <state line="17" column="11" selection-start="678" selection-end="678" vertical-scroll-proportion="-10.625">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="3" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.92941177">
+              <folding>
+                <element signature="e#757#856#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,11 +137,11 @@
         <option value="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20140312235549_add_password_digest_to_user.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_navigation_links.html.erb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -709,15 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="60" selection-start="576" selection-end="576" vertical-scroll-proportion="0.24705882">
-          <folding>
-            <element signature="e#820#919#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/sessions/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="6" selection-start="293" selection-end="293" vertical-scroll-proportion="-5.0">
@@ -762,8 +764,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation_links.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="11" selection-start="678" selection-end="678" vertical-scroll-proportion="0.6359102">
+        <state line="17" column="11" selection-start="678" selection-end="678" vertical-scroll-proportion="-10.625">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="3" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.92941177">
+          <folding>
+            <element signature="e#757#856#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
