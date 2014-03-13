@@ -12,8 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :recipe_id %><br>
-    <%= f.number_field :recipe_id %>
+    <%= f.select :recipe_id, options_from_collection_for_select(@recipes, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>

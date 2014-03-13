@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipes, only: [:new, :edit, :create]
 
   # GET /ratings
   # GET /ratings.json
@@ -70,5 +71,9 @@ class RatingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
       params.require(:rating).permit(:recipe_id, :user_id, :score)
+    end
+
+    def set_recipes
+      @recipes = Recipe.all
     end
 end

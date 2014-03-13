@@ -12,12 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :recipe_id %><br>
-    <%= f.number_field :recipe_id %>
-  </div>
-  <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation  %>
   </div>
   <div class="actions">
     <%= f.submit %>

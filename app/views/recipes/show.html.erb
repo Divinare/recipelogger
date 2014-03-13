@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @recipe.name %></h1>
+
 <p>
-  <strong>Production time:</strong>
-  <%= @recipe.production_time %>
+ <strong>Production time: <%= @recipe.productionTimeToString(@recipe.production_time) %></strong>
 </p>
 
 <p>
-  <strong>Style:</strong>
-  <%= @recipe.style_id %>
+  <strong>Category: <%= @recipe.category_id %> </strong>
 </p>
 
 <p>
-  <strong>Instruction:</strong>
-  <%= @recipe.instruction %>
-</p>
+  <strong>Instruction:</strong> <br/>
+    <%= raw @recipe.instruction.gsub("\n", "<br >") %>
+
+    <br/>
+    <br/>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

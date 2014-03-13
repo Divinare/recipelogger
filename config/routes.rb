@@ -1,5 +1,5 @@
 Recipelogger::Application.routes.draw do
-  resources :styles
+  resources :categories
 
   resources :users
 
@@ -9,7 +9,10 @@ Recipelogger::Application.routes.draw do
 
   root :to => 'recipes#index'
 
-
+  resources :sessions, :only => [:new, :create, :destroy]
+  get 'signin', to: 'sessions#new'
+  get 'signout', to: 'sessions#destroy'
+  get 'signup', to: 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

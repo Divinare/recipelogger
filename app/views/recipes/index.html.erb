@@ -16,7 +16,7 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.production_time %></td>
-        <td><%= recipe.style_id %></td>
+        <td><%= recipe.category.name %></td>
         <td><%= recipe.instruction %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>

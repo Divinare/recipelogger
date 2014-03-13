@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
     <%= f.label :production_time %><br>
     <%= f.number_field :production_time %>
   </div>
   <div class="field">
-    <%= f.label :style_id %><br>
-    <%= f.number_field :style_id %>
+    <%= f.label :category_id %><br>
+    <%= f.select :category_id, options_from_collection_for_select(@categories, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :instruction %><br>
-    <%= f.text_field :instruction %>
+      <%= f.text_area(:instruction, size: '50x10') %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit %>
