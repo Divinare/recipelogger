@@ -12,6 +12,9 @@ class RatingsController < ApplicationController
   # GET /ratings/1
   # GET /ratings/1.json
   def show
+    if !is_right_user(Rating.find(params[:id]).user_id)
+      redirect_to ratings_url, :notice => "Insufficient rights!"
+    end
   end
 
   # GET /ratings/new
@@ -21,15 +24,19 @@ class RatingsController < ApplicationController
 
   # GET /ratings/1/edit
   def edit
+    if !is_right_user(Rating.find(params[:id]).user_id)
+      redirect_to ratings_url, :notice => "Insufficient rights!"
+    end
   end
 
   # POST /ratings
   # POST /ratings.json
   def create
     @rating = Rating.new(rating_params)
-
-
-    if @rating.save
+    if rating_has_been_rated(rating_params[:recipe_id])
+      @rating.errors[:base] << "You can't rate the same recipe more than once"
+      render :new
+    elsif @rating.save
       current_user.ratings << @rating
       redirect_to ratings_path, notice: 'Rating was successfully created.'
     else
@@ -54,25 +61,37 @@ class RatingsController < ApplicationController
   # DELETE /ratings/1
   # DELETE /ratings/1.json
   def destroy
-    @rating.destroy
-    respond_to do |format|
-      format.html { redirect_to ratings_url }
-      format.json { head :no_content }
+    if !is_right_user(Rating.find(params[:id]).user_id)
+      redirect_to ratings_url, :notice => "Insufficient rights!"
+    else
+      @rating.destroy
+      respond_to do |format|
+        format.html { redirect_to ratings_url }
+        format.json { head :no_content }
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rating
-      @rating = Rating.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rating
+    @rating = Rating.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def rating_params
-      params.require(:rating).permit(:recipe_id, :score)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def rating_params
+    params.require(:rating).permit(:recipe_id, :score)
+  end
 
-    def set_recipes
-      @recipes = Recipe.all
+  def set_recipes
+    @recipes = Recipe.all
+  end
+
+  def rating_has_been_rated(recipe_id)
+    if Rating.where(:user_id => current_user.id, :recipe_id => recipe_id).first.nil?
+      return false
+    else
+      return true
     end
+  end
 end

@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def new
-    # renderöi kirjautumissivun
+    if session[:user_id] != nil
+      session[:user_id] = nil
+    end
   end
 
   def create
@@ -19,4 +21,5 @@ class SessionsController < ApplicationController
     # uudelleenohjataan sovellus pääsivulle
     redirect_to :root
   end
+
 end

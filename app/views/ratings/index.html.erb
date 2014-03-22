@@ -1,14 +1,17 @@
-<h1>Listing ratings</h1>
+<h1>Ratings</h1>
 
-<div class="col-md-6">
-  <h3>Recent ratings</h3>
-  <ul>
-    <% Rating.recent.each do |rating| %>
-        <li><strong style="font-size:15px;"> <%= rating.score %> <%= rating.recipe.name %> by <%= rating.user.username %> </strong></li>
-    <% end %>
-  </ul>
+<div class="col-md-3">
+  <h3>Your ratings</h3>
+  <%= render 'list', ratings: Rating.where(:user_id => current_user.id) %>
+
+  <h3><%= link_to "New Rating", new_rating_path %> </h3>
+
 </div>
 
-<br>
+<div class="col-md-3">
+  <h3>Recent ratings</h3>
+  <%= render 'list', ratings: Rating.recent %>
+</div>
 
-<%= link_to 'New Rating', new_rating_path %>
+
+<br/>

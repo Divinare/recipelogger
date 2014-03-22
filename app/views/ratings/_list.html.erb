@@ -1,10 +1,12 @@
 <table class="table table-hover">
   <th></th>
-  <th>Average</th>
+  <th>Score</th>
+  <th></th>
   <% ratings.each do |rating| %>
       <tr>
-        <td><%= link_to rating.name, rating %></td>
-        <td><%= round(rating.average_rating) %></td>
+        <td><%= link_to rating.recipe.name, rating.recipe %></td>
+        <td><%= rating.score %></td>
+        <td><% if rating.user_id == current_user.id %> <%= edit_and_destroy_buttons(rating) %> <% end %></td>
       </tr>
   <% end %>
 </table>

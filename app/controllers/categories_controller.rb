@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_filter :ensure_that_is_admin, :except => [:index, :show]
   # GET /categories
   # GET /categories.json
   def index
@@ -19,6 +19,9 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    if is_not_admin
+
+    end
   end
 
   # POST /categories
