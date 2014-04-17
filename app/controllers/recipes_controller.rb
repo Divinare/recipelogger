@@ -8,9 +8,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     @public_recipes = Recipe.public
     @private_recipes = []
-
+    @public_users_recipes = []
     if not current_user.nil?
-      @private_recipes = current_user.recipes.where(:private => true)
+      @private_users_recipes = current_user.recipes.where(:private => true)
+      @public_users_recipes = current_user.recipes.where(:private => false)
     end
 
     order = params[:order] || 'name'

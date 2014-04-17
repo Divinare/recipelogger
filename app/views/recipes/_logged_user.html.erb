@@ -1,0 +1,16 @@
+<h2> Your private recipes (<%= @private_users_recipes.count %>) </h2>
+
+<%= render 'list', recipes: @private_users_recipes %>
+
+<h2> Your public recipes (<%= @public_users_recipes.count %>) </h2>
+
+<%= render 'list', recipes: @public_users_recipes %>
+
+<h2> All public recipes (<%= @public_recipes.count %>) </h2>
+
+<%= render 'list', recipes: @public_recipes %>
+
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>

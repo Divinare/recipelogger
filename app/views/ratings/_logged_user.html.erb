@@ -1,0 +1,12 @@
+<div class="col-md-3">
+  <h3>Your ratings</h3>
+  <%= render 'list', ratings: Rating.where(:user_id => current_user.id) %>
+
+  <h3><%= link_to "New Rating", new_rating_path %> </h3>
+
+</div>
+
+<div class="col-md-3">
+  <h3>Recent ratings</h3>
+  <%= render 'list', ratings: Rating.recent %>
+</div>

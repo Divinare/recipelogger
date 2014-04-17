@@ -1,4 +1,6 @@
 Recipelogger::Application.routes.draw do
+  resources :ingredients
+
   resources :categories
 
   resources :users

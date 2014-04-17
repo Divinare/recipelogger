@@ -3,7 +3,12 @@
 <p id="notice"><%= notice %></p>
 
 <%= form_tag sessions_path do %>
-    username <%= text_field_tag :username, params[:username] %>
-    password <%= password_field_tag :password, params[:password] %>
+    Username <%= text_field_tag :username, params[:username] %>
+    Password <%= password_field_tag :password, params[:password] %>
     <%= submit_tag "Log in", class:"btn btn-primary btn-sm active" %>
 <% end %>
+
+</br>
+
+<p>Are you a new user?</p>
+<%= link_to "Create account", signup_path %>

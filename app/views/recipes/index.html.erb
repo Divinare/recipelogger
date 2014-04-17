@@ -1,16 +1,13 @@
 <h1>Recipes</h1>
 
-<h2> Public recipes (<%= @public_recipes.count %>) </h2>
+<% if current_user.nil? %>
 
-<%= render 'list', recipes: @public_recipes %>
+    <%= render 'anonymous' %>
 
-<% if not current_user.nil? %>
-<h2> Private recipes (<%= @private_recipes.count %>) </h2>
+<% else %>
 
-<%= render 'list', recipes: @private_recipes %>
+    <%= render 'logged_user' %>
 
 <% end %>
 
-<br>
-
-<%= link_to 'New Recipe', new_recipe_path %>
+<br/>

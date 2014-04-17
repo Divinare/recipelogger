@@ -7,7 +7,7 @@
 </p>
 
 <p>
-  <strong>Category: <%= @recipe.category_id %> </strong>
+  <strong>Category: <%= link_to @recipe.category.name, @recipe.category %> </strong>
 </p>
 
 <p>
@@ -17,5 +17,4 @@
     <br/>
     <br/>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<%= edit_and_destroy_buttons(@recipe) %>

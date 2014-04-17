@@ -11,8 +11,8 @@
   <% recipes.each do |recipe| %>
       <tr>
         <td><%= link_to recipe.name, recipe %></td>
-        <td><%= recipe.production_time %></td>
-        <td><%= round(recipe.average_rating) %></td>
+        <td><%= recipe.productionTimeToString(recipe.production_time) %></td>
+        <td><% if recipe.ratings.count != 0 %> <%= round(recipe.average_rating) %> <% else %> <%= "----" %> <% end %></td>
       </tr>
   <% end %>
   </tbody>

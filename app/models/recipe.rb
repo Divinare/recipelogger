@@ -9,7 +9,12 @@ class Recipe < ActiveRecord::Base
   belongs_to :category
 
   scope :public, -> { where private:false }
-  #scope :private, -> {  ApplicationController.helpers.current_user.recipes.where(:private => true) }
+
+  validates_numericality_of :production_time, :greater_than_or_equal_to => 1,
+                            :less_than_or_equal_to => 300,
+                            :only_integer => true
+
+  validates :name, presence: true, length: {in: 3..40}
 
   def productionTimeToString (timeMin)
     hours = (timeMin.to_i/60.to_i)
@@ -17,7 +22,11 @@ class Recipe < ActiveRecord::Base
       timeMin.to_s + "min"
     else
       min = timeMin.to_i-(hours.to_i*60.to_i)
-      return hours.to_s + "h " + min.to_s + "min"
+      if min == 0
+         return hours.to_s + "h"
+      else
+         return hours.to_s + "h " + min.to_s + "min"
+      end
     end
   end
 
