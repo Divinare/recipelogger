@@ -44,15 +44,23 @@ end
 # Bootstrap
 gem 'bootstrap-sass'
 
+
 group :development do
   gem 'rails_layout'
   gem 'sqlite3'
 
   # Use debugger
-  gem 'byebug'
+#  gem 'byebug'
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+end
+
+group :development, :test do
+  # For testing
+  gem 'rspec-rails', '~> 2.14.1'
+  # Use debugger
+  gem 'byebug'
 end
