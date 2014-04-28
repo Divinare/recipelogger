@@ -1,3 +1,3 @@
-recipelogger
+Recipelogger
 ============
 

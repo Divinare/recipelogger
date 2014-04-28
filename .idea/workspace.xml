@@ -4,7 +4,7 @@
     <list default="true" id="365004d2-193e-48c1-a861-bd40a494a4ff" name="Default" comment="" />
     <ignored path="recipelogger.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/README.md" changelist="365004d2-193e-48c1-a861-bd40a494a4ff" time="1398680791628" ignored="false" />
+    <file path="/README.md" changelist="365004d2-193e-48c1-a861-bd40a494a4ff" time="1398680894181" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +45,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.04310345">
+            <state line="2" column="16" selection-start="26" selection-end="26" vertical-scroll-proportion="0.028735632">
               <folding />
             </state>
           </provider>
@@ -415,7 +415,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.04310345">
+        <state line="2" column="16" selection-start="26" selection-end="26" vertical-scroll-proportion="0.028735632">
           <folding />
         </state>
       </provider>
