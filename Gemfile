@@ -39,7 +39,7 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-gem 'byebug', group: [:development, :test]
+#gem 'byebug', group: [:development, :test]
 
 # Bootstrap
 gem 'bootstrap-sass'
@@ -47,6 +47,9 @@ gem 'bootstrap-sass'
 group :development do
   gem 'rails_layout'
   gem 'sqlite3'
+
+  # Use debugger
+  gem 'byebug'
 end
 
 group :production do
