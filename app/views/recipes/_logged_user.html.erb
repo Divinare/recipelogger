@@ -6,9 +6,9 @@
 
 <%= render 'list', recipes: @public_users_recipes %>
 
-<h2> All public recipes (<%= @public_recipes.count %>) </h2>
+<h2> All public recipes (<%= @other_public_recipes.count %>) </h2>
 
-<%= render 'list', recipes: @public_recipes %>
+<%= render 'list', recipes: @other_public_recipes %>
 
 
 <br>

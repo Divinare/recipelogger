@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
@@ -10,5 +10,4 @@
   <%= @category.description %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= edit_and_destroy_buttons(@category) %>

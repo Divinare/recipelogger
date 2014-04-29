@@ -6,7 +6,7 @@
       <tr>
         <td><%= link_to rating.recipe.name, rating.recipe %></td>
         <td><%= rating.score %></td>
-        <td><% if not current_user.nil? || rating.user_id == current_user.id %> <%= edit_and_destroy_buttons(rating) %> <% end %></td>
+        <td><% if rating.user_id == current_user.id  %> <%= edit_and_destroy_buttons(rating) %> <% end %></td>
       </tr>
   <% end %>
 </table>

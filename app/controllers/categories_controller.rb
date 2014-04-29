@@ -19,9 +19,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    if is_not_admin
 
-    end
   end
 
   # POST /categories
@@ -57,10 +55,15 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
+
+    if is_not_related_to_any_recipe
     @category.destroy
     respond_to do |format|
       format.html { redirect_to categories_url }
       format.json { head :no_content }
+    end
+    else
+      redirect_to categories_url, :notice => "Deleting category not possible, make sure you delete all recipes related to it first"
     end
   end
 
@@ -73,5 +76,12 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:name, :description)
+    end
+
+    def is_not_related_to_any_recipe
+        if Category.find(params[:id]).recipes.empty?
+          return true
+        end
+          return false
     end
 end

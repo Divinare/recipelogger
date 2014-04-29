@@ -1,0 +1,57 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/joe/recipelogger/app/helpers/application_helper.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/joe/recipelogger/app/helpers/categories_helper.rb": [
+        1,
+        null
+      ],
+      "/home/joe/recipelogger/app/helpers/ingredients_helper.rb": [
+        1,
+        null
+      ],
+      "/home/joe/recipelogger/app/helpers/ratings_helper.rb": [
+        1,
+        null
+      ],
+      "/home/joe/recipelogger/app/helpers/recipes_helper.rb": [
+        1,
+        null
+      ],
+      "/home/joe/recipelogger/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/home/joe/recipelogger/app/models/user.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1398801710
+  }
+}

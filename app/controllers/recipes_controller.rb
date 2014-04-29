@@ -6,14 +6,14 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
-    @public_recipes = Recipe.public
     @private_recipes = []
     @public_users_recipes = []
     if not current_user.nil?
       @private_users_recipes = current_user.recipes.where(:private => true)
       @public_users_recipes = current_user.recipes.where(:private => false)
     end
-
+    # All recipes that doesnt belong to @public_users_recipes
+    @other_public_recipes = Recipe.public - @public_users_recipes
     order = params[:order] || 'name'
 
     case order
@@ -36,6 +36,10 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    if have_rights?
+    else
+      redirect_to Recipe.find(params[:id]), :notice => "Insufficient rights!"
+    end
   end
 
   # POST /recipes
@@ -72,11 +76,15 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
-    @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url }
-      format.json { head :no_content }
-    end
+    if have_rights?
+       @recipe.destroy
+       respond_to do |format|
+         format.html { redirect_to recipes_url }
+         format.json { head :no_content }
+       end
+    else
+       redirect_to Recipe.find(params[:id]), :notice => "Insufficient rights!"
+   end
   end
 
   private
@@ -92,5 +100,12 @@ class RecipesController < ApplicationController
 
     def set_categories
       @categories = Category.all
+    end
+
+    def have_rights?
+       if current_user.recipes.include? Recipe.find(params[:id])
+         return true
+       end
+       return false
     end
 end

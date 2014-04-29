@@ -12,7 +12,8 @@ class RatingsController < ApplicationController
   # GET /ratings/1
   # GET /ratings/1.json
   def show
-    if !is_right_user(Rating.find(params[:id]).user_id)
+    if have_rights?
+    else
       redirect_to ratings_url, :notice => "Insufficient rights!"
     end
   end
@@ -24,7 +25,8 @@ class RatingsController < ApplicationController
 
   # GET /ratings/1/edit
   def edit
-    if !is_right_user(Rating.find(params[:id]).user_id)
+    if have_rights?
+    else
       redirect_to ratings_url, :notice => "Insufficient rights!"
     end
   end
@@ -61,14 +63,14 @@ class RatingsController < ApplicationController
   # DELETE /ratings/1
   # DELETE /ratings/1.json
   def destroy
-    if !is_right_user(Rating.find(params[:id]).user_id)
-      redirect_to ratings_url, :notice => "Insufficient rights!"
-    else
+    if have_rights?
       @rating.destroy
       respond_to do |format|
         format.html { redirect_to ratings_url }
         format.json { head :no_content }
       end
+    else
+       redirect_to ratings_url, :notice => "Insufficient rights!"
     end
   end
 
@@ -94,4 +96,12 @@ class RatingsController < ApplicationController
       return true
     end
   end
+
+  def have_rights?
+    if is_right_user(Rating.find(params[:id]).user_id)
+      return true
+    end
+    return false
+  end
+
 end
