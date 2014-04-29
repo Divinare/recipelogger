@@ -1,6 +1,6 @@
 <h1><%= @recipe.name %></h1>
 
-<% if current_user.recipes.include? @recipe %>
+<% if not current_user.nil? and current_user.recipes.include? @recipe %>
    <p>This recipe is yours and its
      <% if @recipe.private %>
          <b>private</b>
