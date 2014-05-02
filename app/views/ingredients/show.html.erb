@@ -1,9 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ingredient.name %>
-</p>
+<h2>
+  Ingredient: <%= @ingredient.name %>
+</h2>
+
+<p> Public recipes that this ingredient is used for: </p>
+
+<table class="table table-hover">
+  <th>Name</th>
+  <th>Production time</th>
+
+  <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, recipe %></td>
+        <td><%= recipe.production_time %></td>
+      </tr>
+  <% end %>
+</table>
+
+
 
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>

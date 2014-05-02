@@ -10,6 +10,9 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
+      @recipes = Ingredient.find(params[:id]).recipes
+
+
   end
 
   # GET /ingredients/new
@@ -29,7 +32,7 @@ class IngredientsController < ApplicationController
     respond_to do |format|
       if @ingredient.save
         format.html { redirect_to ingredients_path, notice: 'Ingredient was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @ingredient }
+        format.json { render action: 'show', status: :created, location: ingredients_url }
       else
         format.html { render action: 'new' }
         format.json { render json: @ingredient.errors, status: :unprocessable_entity }
