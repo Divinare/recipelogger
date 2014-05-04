@@ -14,26 +14,26 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-05-04T23:37:35+03:00">2014-05-04T23:37:35+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-05-05T00:42:36+03:00">2014-05-05T00:42:36+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">90.88%</span></span>
+    (<span class="covered_percent"><span class="green">90.91%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         7.86
+         7.82
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>21</b> files in total.
-    <b>340</b> relevant lines. 
-    <span class="green"><b>309</b> lines covered</span> and
+    <b>341</b> relevant lines. 
+    <span class="green"><b>310</b> lines covered</span> and
     <span class="red"><b>31</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -57,7 +57,7 @@
         <td>30</td>
         <td>24</td>
         <td>6</td>
-        <td>63.5</td>
+        <td>63.3</td>
       </tr>
       
       <tr>
@@ -92,10 +92,10 @@
       
       <tr>
         <td class="strong"><a href="#88a5ec7df000db81f2b88f125d79425c67080ec0" class="src_link" title="app/controllers/recipes_controller.rb">app/controllers/recipes_controller.rb</a></td>
-        <td class="yellow strong">86.67 %</td>
-        <td>120</td>
-        <td>60</td>
-        <td>52</td>
+        <td class="yellow strong">86.89 %</td>
+        <td>122</td>
+        <td>61</td>
+        <td>53</td>
         <td>8</td>
         <td>1.7</td>
       </tr>
@@ -269,19 +269,19 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="yellow">88.64%</span></span>
+    (<span class="covered_percent"><span class="yellow">88.69%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         8.85
+         8.8
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>7</b> files in total.
-    <b>273</b> relevant lines. 
-    <span class="green"><b>242</b> lines covered</span> and
+    <b>274</b> relevant lines. 
+    <span class="green"><b>243</b> lines covered</span> and
     <span class="red"><b>31</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -305,7 +305,7 @@
         <td>30</td>
         <td>24</td>
         <td>6</td>
-        <td>63.5</td>
+        <td>63.3</td>
       </tr>
       
       <tr>
@@ -340,10 +340,10 @@
       
       <tr>
         <td class="strong"><a href="#88a5ec7df000db81f2b88f125d79425c67080ec0" class="src_link" title="app/controllers/recipes_controller.rb">app/controllers/recipes_controller.rb</a></td>
-        <td class="yellow strong">86.67 %</td>
-        <td>120</td>
-        <td>60</td>
-        <td>52</td>
+        <td class="yellow strong">86.89 %</td>
+        <td>122</td>
+        <td>61</td>
+        <td>53</td>
         <td>8</td>
         <td>1.7</td>
       </tr>
@@ -733,14 +733,14 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="782" data-linenumber="9">
-          <span class="hits">782</span>
+        <li class="covered" data-hits="779" data-linenumber="9">
+          <span class="hits">779</span>
           
           <code class="ruby">    return nil if session[:user_id].nil?</code>
         </li>
       
-        <li class="covered" data-hits="710" data-linenumber="10">
-          <span class="hits">710</span>
+        <li class="covered" data-hits="707" data-linenumber="10">
+          <span class="hits">707</span>
           
           <code class="ruby">    User.find(session[:user_id])</code>
         </li>
@@ -2738,10 +2738,10 @@
         <div class="source_table" id="88a5ec7df000db81f2b88f125d79425c67080ec0">
   <div class="header">
     <h3>app/controllers/recipes_controller.rb</h3>
-    <h4><span class="yellow">86.67 %</span> covered</h4>
+    <h4><span class="yellow">86.89 %</span> covered</h4>
     <div>
-      <b>60</b> relevant lines. 
-      <span class="green"><b>52</b> lines covered</span> and
+      <b>61</b> relevant lines. 
+      <span class="green"><b>53</b> lines covered</span> and
       <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
@@ -3436,11 +3436,11 @@
         <li class="covered" data-hits="5" data-linenumber="115">
           <span class="hits">5</span>
           
-          <code class="ruby">       if current_user.recipes.include? Recipe.find(params[:id])</code>
+          <code class="ruby">       if not Recipe.find(params[:id]).private?</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="116">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="3" data-linenumber="116">
+          <span class="hits">3</span>
           
           <code class="ruby">         return true</code>
         </li>
@@ -3448,22 +3448,34 @@
         <li class="never" data-hits="" data-linenumber="117">
           
           
-          <code class="ruby">       end</code>
+          <code class="ruby">       elsif current_user.recipes.include? Recipe.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="118">
+        <li class="covered" data-hits="2" data-linenumber="118">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">       return false</code>
+          <code class="ruby">         return true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="119">
           
           
+          <code class="ruby">       end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="120">
+          
+          
+          <code class="ruby">       return false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="121">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="122">
           
           
           <code class="ruby">end</code>

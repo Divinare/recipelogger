@@ -112,7 +112,9 @@ class RecipesController < ApplicationController
     end
 
     def have_rights?
-       if current_user.recipes.include? Recipe.find(params[:id])
+       if not Recipe.find(params[:id]).private?
+         return true
+       elsif current_user.recipes.include? Recipe.find(params[:id])
          return true
        end
        return false
