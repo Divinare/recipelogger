@@ -1,27 +1,38 @@
 <h1><%= @recipe.name %></h1>
 
 <% if not current_user.nil? and current_user.recipes.include? @recipe %>
-   <p>This recipe is yours and its
-     <% if @recipe.private %>
-         <b>private</b>
-     <% else %>
-         <b>public</b>
-     <% end %></p>
+    <p>This recipe is yours and its
+      <% if @recipe.private %>
+          <b>private</b>
+      <% else %>
+          <b>public</b>
+      <% end %></p>
 <% end %>
 
 <p>
- <strong>Production time: <%= @recipe.productionTimeToString(@recipe.production_time) %></strong>
+  <strong>Production time: <%= @recipe.productionTimeToString(@recipe.production_time) %></strong>
 </p>
 
 <p>
   <strong>Category: <%= link_to @recipe.category.name, @recipe.category %> </strong>
 </p>
 
-<p>
-  <strong>Instruction:</strong> <br/>
-    <%= raw @recipe.instruction.gsub("\n", "<br >") %>
 
-    <br/>
-    <br/>
+<strong>Instruction:</strong> <br/>
+<%= raw @recipe.instruction.gsub("\n", "<br >") %>
+
+<br/>
+<br/>
+
+<p><strong>Ingredients:</strong></p>
+<% @ingredients.each do |ingredient| %>
+    <%= link_to ingredient.name, ingredient %>
+<% end %>
+
+
+<br/>
+<br/>
+
+
 
 <%= edit_and_destroy_buttons(@recipe) %>

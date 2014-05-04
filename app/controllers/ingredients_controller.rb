@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  before_filter :ensure_that_is_admin
 
   # GET /ingredients
   # GET /ingredients.json

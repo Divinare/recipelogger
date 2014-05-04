@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_filter :ensure_that_signed_in, :except => [:index, :show]
+  before_filter :ensure_that_signed_in, :except => [:index]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :set_categories, only: [:new, :edit, :create]
   # GET /recipes
@@ -16,10 +16,10 @@ class RecipesController < ApplicationController
     @other_public_recipes = Recipe.public - @public_users_recipes
     order = params[:order] || 'name'
 
-    case order
-      when 'name' then @recipes.sort_by!{ |b| b.name }
-      when 'time' then @recipes.sort_by!{ |b| b.production_time }
-    end
+  #  case order
+  #    when 'name' then @recipes.sort_by!{ |b| b.name }
+  #    when 'time' then @recipes.sort_by!{ |b| b.production_time }
+  #  end
 
 
   end
@@ -27,18 +27,27 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    if have_rights?
+      @ingredients = Recipe.find(params[:id]).ingredients
+    else
+      redirect_to recipes_url, :notice => "Insufficient rights!"
+    end
   end
 
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @ingredients = Ingredient.all
+    @selectedIngredients = []
   end
 
   # GET /recipes/1/edit
   def edit
     if have_rights?
+      @ingredients = Ingredient.all
+      @selectedIngredients = Recipe.find(params[:id]).ingredients
     else
-      redirect_to Recipe.find(params[:id]), :notice => "Insufficient rights!"
+      redirect_to recipes_url, :notice => "Insufficient rights!"
     end
   end
 
@@ -83,7 +92,7 @@ class RecipesController < ApplicationController
          format.json { head :no_content }
        end
     else
-       redirect_to Recipe.find(params[:id]), :notice => "Insufficient rights!"
+      redirect_to recipes_url, :notice => "Insufficient rights!"
    end
   end
 

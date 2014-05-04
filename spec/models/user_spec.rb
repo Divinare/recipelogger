@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../spec_helper'
 
 describe User do
   it "has the username set correctly" do
@@ -45,6 +45,13 @@ describe User do
       expect(user.valid?).to be(true)
       expect(User.count).to eq(1)
     end
+  end
+
+  it "is not saved without username" do
+
+    user = User.create password: "Secret1", password_confirmation: "Secret1"
+    expect(user).not_to be_valid
+    expect(User.count).to eq(0)
   end
 end
 

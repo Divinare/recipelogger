@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     else
 
     respond_to do |format|
-      if @user.update(user_params)
+      if params[:username].nil? and currently_signed_in? @user and @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -70,6 +70,9 @@ class UsersController < ApplicationController
       redirect_to users_url, :notice => 'Insufficient rights'
     else
        @user.destroy
+       session[:user_id] = nil
+       Rating.all.select{ |r| r.user.nil? }.each{ |r| r.delete }
+
        respond_to do |format|
          format.html { redirect_to users_url }
          format.json { head :no_content }

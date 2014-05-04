@@ -51,7 +51,7 @@ class RatingsController < ApplicationController
   def update
     respond_to do |format|
       if @rating.update(rating_params)
-        format.html { redirect_to @rating, notice: 'Rating was successfully updated.' }
+        format.html { redirect_to ratings_path, notice: 'Rating was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -56,6 +56,13 @@ end
 group :test do
   # Line coverage
   gem 'simplecov', require: false
+  # Test environment
+  gem 'factory_girl_rails'
+  # Capybara to simulate browser
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+
 end
 
 group :production do

@@ -39,13 +39,69 @@
     <br/>
     <br/>
 
+
+    <% f.fields_for :ingredients do |ing| %>
+
+
+    <% end %>
+
+
+
+    <p>Ingredients:</p>
+    <ul id = "button-list">
+      <% @selectedIngredients.each do |ingredient| %>
+          <li>
+            <button class = "buttons" id = "<%= ingredient.id%>"  name = "ltrContainer"   ><%= ingredient.name %></button>
+          </li>
+      <% end %>
+    </ul>
+
+
+    <input id="ingredients" type="hidden" value=[] >
+
+
+
+    <p>Add ingredients:</p>
+    <select id=selectIngredient onchange='addIngredient();'>
+
+      <% @ingredients.each do |ingredient| %>
+          <option><%= ingredient.name %></option>
+      <% end %>
+
+    </select>
+
+    <br/>
+    <br/>
+
     <div class="actions">
       <%= f.submit %>
     </div>
 <% end %>
 
 
+<p><input type="text" id="ingredient" size="20"></p>
+
 <script type="text/javascript">
+
+    function addIngredient() {
+        var ingredientList = document.getElementById("selectIngredient");
+        // var currentList = document.getElementById("recipe_ingredients").value;
+        //currentList.push(ingredientList.options[ingredientList.selectedIndex]).text;
+
+
+        //    document.getElementById("recipe_ingredients").value.push(ingredientList.options[ingredientList.selectedIndex]).text;
+
+        document.getElementById("ingredient").value = ingredientList.options[ingredientList.selectedIndex].text;
+
+       // http://rbudiharso.wordpress.com/2010/07/07/dynamically-add-and-remove-input-field-in-rails-without-javascript/
+       // remote true
+      // https://github.com/jamox/mooc-master-race/blob/master/app/views/interviews/_interview_details.html.haml#L43
+      // https://github.com/jamox/mooc-master-race/blob/master/app/controllers/interviews_controller.rb#L48
+       // https://github.com/jamox/mooc-master-race/blob/master/app/assets/javascripts/interviews.js#L10
+    }
+
+
+
     function changePrivacy() {
         var value = document.getElementById("privacy").value;
         if (value == "Private") {
