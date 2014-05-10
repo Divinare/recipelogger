@@ -4,10 +4,11 @@ Recipelogger
 
 [![Build Status](https://api.travis-ci.org/Divinare/recipelogger.svg)](https://api.travis-ci.org/repositories/Divinare/recipelogger)
 
-Heroku: http://recipelogger.herokuapp.com/ingredients
+Tämä sovellus on tarkoitettu erilaisten reseptien kirjanpidon helpottamiseksi. Tulevaisuudessa olisi tarkoitus lisätä toiminnallisuuksien määrää silloin kun on aikaa.
+
+Heroku: http://recipelogger.herokuapp.com/ingredients </br>
 Travis: https://travis-ci.org/Divinare/recipelogger
 
-Tämä sovellus on tarkoitettu erilaisten reseptien kirjanpidon helpottamiseksi. Tulevaisuudessa olisi tarkoitus lisätä toiminnallisuuksien määrää silloin kun on aikaa.
 
 <h3>Käyttöohje:</h3>
 - Luo ensin käyttäjätunnus ja kirjaudu sisään, jonka jälkeen voit:
@@ -26,7 +27,7 @@ Adminit voivat lisäksi:
 Testit voi ajaa komennolla:
 bundle exec rspec spec
 
-Testien rivikattavuus: <b>90,91%</b>
+Testien rivikattavuus: <b>90,91%.</b></br>
 Testattu on ainakin:
 - Olioiden (esim. recipe)
   * luonti
