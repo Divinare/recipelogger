@@ -9,7 +9,7 @@ Travis: https://travis-ci.org/Divinare/recipelogger
 
 Tämä sovellus on tarkoitettu erilaisten reseptien kirjanpidon helpottamiseksi. Tulevaisuudessa olisi tarkoitus lisätä toiminnallisuuksien määrää silloin kun on aikaa.
 
-<h2>Käyttöohje:</h2>
+<h3>Käyttöohje:</h3>
 Luo käyttäjätunnus
 Kirjaudu sisään
 Toiminnallisuuksia:
@@ -24,7 +24,7 @@ Adminit voivat lisäksi:
 - Poistaa/lisätä Ainesosisa
 
 
-Testaus:
+<h3>Testaus:</h3>
 Testit voi ajaa komennolla:
 bundle exec rspec spec
 

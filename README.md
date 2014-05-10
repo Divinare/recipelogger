@@ -9,26 +9,24 @@ Travis: https://travis-ci.org/Divinare/recipelogger
 
 Tämä sovellus on tarkoitettu erilaisten reseptien kirjanpidon helpottamiseksi. Tulevaisuudessa olisi tarkoitus lisätä toiminnallisuuksien määrää silloin kun on aikaa.
 
-<h2>Käyttöohje:</h2>
-Luo käyttäjätunnus
-Kirjaudu sisään
-Toiminnallisuuksia:
-- Omien reseptejen lisäys
+<h3>Käyttöohje:</h3>
+- Luo ensin käyttäjätunnus ja kirjaudu sisään, jonka jälkeen voit:
+- Lisätä omia resepetejä
    * julkiset reseptit
    * yksityiset reseptit
-- Muiden lisäämien julkisten reseptien katselu 
-- Omien/muiden reseptien arvostelu
+- Katsella muiden lisäämiä julkisia reseptejä
+- Arvostella muiden reseptejä tai omia reseptejä
 
 Adminit voivat lisäksi:
 - Poistaa/lisätä Kategorioita
 - Poistaa/lisätä Ainesosisa
 
 
-Testaus:
+<h3>Testaus:</h3>
 Testit voi ajaa komennolla:
 bundle exec rspec spec
 
-Testien rivikattavuus: 90,91%
+Testien rivikattavuus: <b>90,91%</b>
 Testattu on ainakin:
 - Olioiden (esim. recipe)
   * luonti
