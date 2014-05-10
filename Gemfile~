@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-# to get byebug working
-gem 'rb-readline'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
@@ -41,6 +38,9 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+# Use debugger
+#gem 'byebug', group: [:development, :test]
+
 # Bootstrap
 gem 'bootstrap-sass'
 
@@ -48,6 +48,9 @@ gem 'bootstrap-sass'
 group :development do
   gem 'rails_layout'
   gem 'sqlite3'
+
+  # Use debugger
+#  gem 'byebug'
 end
 
 group :test do
@@ -70,5 +73,5 @@ group :development, :test do
   # For testing
   gem 'rspec-rails', '~> 2.14.1'
   # Use debugger
-  gem 'byebug'
+  gem 'byebug' #gem 'rb-readline' <- add to gemfile if its not working
 end
