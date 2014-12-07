@@ -6,7 +6,7 @@ Recipelogger
 
 Tämä sovellus on tarkoitettu erilaisten reseptien kirjanpidon helpottamiseksi. Tulevaisuudessa olisi tarkoitus lisätä toiminnallisuuksien määrää silloin kun on aikaa.
 
-Heroku: http://recipelogger.herokuapp.com/ingredients
+Heroku: http://recipelogger.herokuapp.com <br />
 Travis: https://travis-ci.org/Divinare/recipelogger
 
 
