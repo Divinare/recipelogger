@@ -3,8 +3,6 @@
 	  <h3>Your ratings</h3>
 	  <%= render 'list', ratings: Rating.where(:user_id => current_user.id) %>
 
-	 
-
 	</div>
 
 	<div class="col-md-4">
