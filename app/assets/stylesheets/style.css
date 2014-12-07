@@ -1,0 +1,22 @@
+body {
+    color: #508599 !important;
+
+}
+
+.navbar-inverse .container {
+	background-color: #001969;
+	width: 100%;
+}
+
+.btn-warning:hover {
+	background-color: #7A0904;
+}
+.btn-danger.active {
+	background-color: #AD3936 !important;
+	border-color: #000000 !important;
+}
+
+.btn-warning.active {
+	background-color: #D69438 !important;
+	border-color: #000000 !important;
+}
